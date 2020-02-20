@@ -2,7 +2,7 @@
 :root {
   --background: #000;
   --text: #FFF;
-  --highlight: #FF1EAD;
+  --highlight: #00ffae;
 }
 
 body {
@@ -24,6 +24,8 @@ body {
   background: var(--highlight);
   border-radius: 50px;
   position: relative;
+  left: 0px;
+  bottom: 377px;
 }
 .theme-switch .switch {
   background: white;
@@ -67,6 +69,8 @@ ul a {
   color: var(--text);
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
+  left: -23px;
+  bottom: 376px;
   text-transform: uppercase;
   text-decoration: none;
 }
