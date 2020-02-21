@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Oswald");
 :root {
-  --background: #000;
+  --background: #1b262c;
   --text: #FFF;
   --highlight: #00ffae;
 }
@@ -56,6 +56,10 @@ body {
 
 .navigation {
   display: flex;
+  justify-content: center;
+}
+
+.homw {
   justify-content: center;
 }
 
