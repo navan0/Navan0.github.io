@@ -1,32 +1,342 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - Light/Dark Mode toggle Navigation Bar</title>
-  <link rel="stylesheet" href="./style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navaneethkt.</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
+<link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand page-scroll" href="#page-top">Navaneethkt.me</a>
+      <!-- <div class="phone"><button onclick="myFunction()">Dark mode</button> -->
+      <label class="switch">
+        <input type="checkbox" onclick="myFunction()">
+        <span class="slider round"></span>
+      </label>
+        <script>
+  function myFunction() {
+     var element = document.body;
+     element.classList.toggle("dark-mode");
+  }
+  </script></div>
+    </div>
 
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about" class="page-scroll">About</a></li>
+        <li><a href="#services" class="page-scroll">Packages</a></li>
+        <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
+        <li><a href="#contact" class="page-scroll">Contact</a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+</nav>
+<!-- Header -->
+<header id="header">
+  <div class="intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 intro-text">
+            <h1>HELLO\<br>WORLD</h1>
+<a href="#"><i class="fa fa-github" style="color:#848D99;"></i></a>&nbsp;&nbsp;
+                    <a href="#"><i class="fa fa-twitter" style="color:#848D99;"></i></a>&nbsp;&nbsp;
+                  <a href="#"><i class="fa fa-google" style="color:#848D99;"></i></a>&nbsp;&nbsp;
+                    <a href="#"><i class="fa fa-linkedin" style="color:#848D99;"></i></a>&nbsp;&nbsp;
+                </div> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Get Touch Section -->
+<div id="get-touch">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-1">
+        <!-- <h3>Cost for your event</h3>
+        <p>Get started today and feel free to request your free estimate</p> -->
+      </div>
+      <div class="col-xs-12 col-md-4 text-center"><a href="#contact" class="btn btn-custom btn-lg page-scroll">Telegram?</a></div>
+    </div>
+  </div>
+</div>
+<!-- About Section -->
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6"> <img src="img/about.jpg" class="img-responsive" alt=""> </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>About</h2>
+          <p>blah</p>
+          <h3>bio</h3>
+          <div class="list-style">
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <ul>
+                <li>blah </li>
+                <li> blah</li>
+                <li>blah</li>
+                <li>blah</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <ul>
+                <li>blah</li>
+                <li>blah</li>
+                <li>Blah</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Services Section -->
+<div id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>blogs</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="service-media"> <img src="img/services/service-1.jpg" alt=" "> </div>
+        <div class="service-desc">
+          <h3>1</h3>
+          <p>blah</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-media"> <img src="img/services/service-3.jpg" alt=" "> </div>
+        <div class="service-desc">
+          <h3>2</h3>
+          <p>blah.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-media"> <img src="img/services/service-2.jpg" alt=" "> </div>
+        <div class="service-desc">
+          <h3>3</h3>
+          <p>blah</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Gallery Section -->
+<div id="portfolio">
+  <div class="container">
+    <div class="section-title">
+      <h2>Gallery</h2>
+    </div>
+    <div class="row">
+      <div class="portfolio-items">
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/01-large.jpg"  data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>meetups</h4>
+              </div>
+              <img src="img/portfolio/01-small.jpg" class="img-responsive" > </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/02-large.jpg"  data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>workshops</h4>
+              </div>
+              <img src="img/portfolio/02-small.jpg" class="img-responsive" > </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/03-large.jpg"  data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>misc</h4>
+              </div>
+              <img src="img/portfolio/03-small.jpg" class="img-responsive" > </a> </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<!-- <div id="contact">
+  <div class="container">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="section-title">
+          <h2>Get In Touch</h2>
+          <p id="font-face">Please feel free to contact us on <b>me@navaneethkt.me</b> for quries.</p>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-3 col-md-offset-1 contact-info">
+      <div class="contact-item">
+        <h4>Contact Info</h4>
+        <p><span>Address</span>Kappad Beach,<br>
+          Kappad PO, Kozhikode,<br> Kerala, 673304</p>
+      </div>
+      <div class="contact-item">
+        <p><span>Phone</span> +91 8086436234 <br>+91 8891443007
+</p>
+      </div>
+      <div class="contact-item">
+        <p><span>Email</span> info@blueceventhub.com</p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="social">
+          <ul>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- Testimonials Section -->
+<div id="testimonials">
+  <div id="map" style="width:100%;height:400px;"></div>
+   <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+      height: 100%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<div class="theme-switch">
-  <div class="switch"></div>
+  <div id="map"></div>
+
+<!-- Footer Section -->
+<div id="footer">
+  <div class="container text-center">
+    <p>&copy; Blue C - 2019 Developed by <a href="https://www.linkedin.com/in/navaneeth-kt-0978b513b/" rel="nofollow">Nav</a></p>
+  </div>
 </div>
-<div class="navigation">
-  <ul>
-    <a href="http://www.sashatran.com/" class="active" target="_blank">About</a>
-    <a href="projects.html" target="_blank">Projects</a>
-    <a href="https://github.com/navan0/" target="_blank">Github</a>
-    <a href="https://twitter.com/navan0" target="_blank">Blogs</a>
-  </ul>
-</div>
-
-
-
-
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><script  src="./script.js"></script>
-
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/SmoothScroll.js"></script>
+<script type="text/javascript" src="js/nivo-lightbox.js"></script>
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="js/contact_me.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
