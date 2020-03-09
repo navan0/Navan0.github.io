@@ -11,8 +11,9 @@ body, html {
 }
 
 .dark-mode {
-  background-color: #081B33;
+  background-color: #000000;
   color: white;
+
 }
 h2 {
 	font-family: 'Montserrat', sans-serif;
