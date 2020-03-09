@@ -252,7 +252,7 @@ header .navbar-brand {
 	padding-right: 8px;
 }
 #about img {
-	padding: 20px;
+	padding: 0px;
 	width: 500px;
 	margin-top: 10px;
 	background: #fff;
@@ -505,9 +505,9 @@ src: url("../fonts/fonts/Bulgatti.ttf");
   position: absolute;
   cursor: pointer;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: 12px;
+  right: -10px;
+  bottom: -11px;
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
@@ -526,7 +526,7 @@ src: url("../fonts/fonts/Bulgatti.ttf");
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #ffaa00;
 }
 
 input:focus + .slider {
@@ -541,7 +541,7 @@ input:checked + .slider:before {
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 30px;
+  border-radius: 50px;
 }
 
 .slider.round:before {
