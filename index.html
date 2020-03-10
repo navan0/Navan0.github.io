@@ -44,13 +44,22 @@
       <a class="navbar-brand page-scroll" href="#page-top">Navaneethkt.me</a>
       <!-- <div class="phone"><button onclick="myFunction()">Dark mode</button> -->
       <label class="switch">
-        <input type="checkbox" onclick="myFunction()">
-        <span class="slider round"></span>
+        <!-- <div class="darkmode card-b fa fa-moon" onclick="myFunction()"></div> -->
+        <!-- <input  onclick="myFunction()"><i class="fab fa-github"></i> -->
+        <img id="dark" src="https://www.freepnglogos.com/uploads/moon-png/moon-transparent-png-and-clip-art-images-icons-and-33.png" onclick="myFunction()" height="30" width="30">
+        <!-- <span class="slider round"></span> -->
       </label>
         <script>
   function myFunction() {
      var element = document.body;
      element.classList.toggle("dark-mode");
+     if (document.getElementById('dark').src == 'https://www.freepnglogos.com/uploads/moon-png/moon-transparent-png-and-clip-art-images-icons-and-33.png') {
+  document.getElementById('dark').src='https://www.stickpng.com/assets/images/580b585b2edbce24c47b270f.png'
+}else {
+document.getElementById('dark').src='https://www.freepnglogos.com/uploads/moon-png/moon-transparent-png-and-clip-art-images-icons-and-33.png'}
+
+
+
   }
   </script></div>
     </div>
