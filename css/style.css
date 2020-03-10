@@ -11,19 +11,19 @@ body, html {
 }
 
 .dark-mode {
-  background-color: #000000;
+  background-color: #2d2d2d;
   color: white;
 
 }
 h2 {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	margin: 0 0 20px 0;
 	font-weight: 700;
 	font-size: 32px;
 
 }
 h3 {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	font-size: 22px;
 	font-weight: 700;
 }
@@ -82,7 +82,7 @@ hr {
 	letter-spacing: -1px;
 }
 #menu.navbar-default .navbar-nav > li > a {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: 700;
@@ -97,7 +97,7 @@ hr {
 	background-color: transparent;
 }
 #menu .phone {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	margin: 4px 0 0 120px;
 	float: left;
 	font-size: 16px;
@@ -169,7 +169,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 .intro .overlay {
 }
 .intro h1 {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	font-size: 62px;
 	font-weight: 700;
 	margin-top: 0;
