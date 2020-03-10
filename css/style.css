@@ -86,10 +86,13 @@ hr {
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: 700;
-	padding: 8px 2px;
+	padding: 0px 2px;
 	border-radius: 0;
 	margin: 9px 20px 0 20px;
+	position: relative;
+	bottom: 10px;
 }
+
 #menu.navbar-default .navbar-nav > li > a:hover {
 
 }
@@ -185,7 +188,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	margin-bottom: 40px;
 }
 header .intro-text {
-	padding-top: 350px;
+	padding-top: 203px;
 	padding-bottom: 150px;
 	text-align: center;
 }
@@ -199,7 +202,7 @@ header .navbar-brand {
 }
 /* Get Touch Section */
 #get-touch {
-	padding: 40px 0 30px;
+	padding: 0px 0 30px;
 
 }
 #get-touch h3 {
@@ -562,5 +565,5 @@ input:checked + .slider:before {
 }
 
 .container {
-  padding: 2px 16px;
+  padding: 0px 16px;
 }
