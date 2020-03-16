@@ -266,27 +266,27 @@ header .navbar-brand {
 	line-height: 24px;
 	margin: 30px 0;
 }
-/* Services Section */
-#services {
-	padding: 47px 0;
+/* tech Section */
+#tech {
+	padding: 105px 0;
 }
-#services .service-media {
+#tech .tech-media {
 	margin: 10px;
 }
-#services .service-media img {
+#tech .tech-media img {
 	position: relative;
 	display: block;
 	width: 100%;
 	height: auto;
 }
-#services .service-desc {
+#tech .tech-desc {
 	margin: 10px 10px 20px;
 }
-#services h3 {
+#tech h3 {
 	font-weight: 700;
 	padding: 5px 0;
 }
-#services .service-desc hr {
+#tech .tech-desc hr {
 	margin-left: 0;
 }
 /* Portfolio Section */
