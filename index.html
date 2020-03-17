@@ -94,7 +94,7 @@ document.getElementById('dark').src="img/moon.png"}
         <div class="row">
           <div class="col-md-8 col-md-offset-2 intro-text">
             <!-- <h1>HELLO\<br>WORLD</h1> -->
-            <img src="img/sad.gif" height="303" width="300"><br>[*indicates my real time mood]<br>
+            <img id="ing" src="img/load.gif" height="100" width="100" ><br><p id="mood">[*indicates my real time mood]</p><br>
             <!-- <a href="yourmusicfile.mp3">Play music</a> -->
 <a href="https://www.github.com/navan0"><i class="fa fa-github" style="color:#848D99;"></i></a>&nbsp;&nbsp;
                     <a href="https://twitter.com/navan0"><i class="fa fa-twitter" style="color:#848D99;"></i></a>&nbsp;&nbsp;
@@ -302,5 +302,75 @@ document.getElementById('dark').src="img/moon.png"}
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
 <script type="text/javascript" src="js/contact_me.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+<!-- <script type="text/javascript" src="js/firebase.js"></script> -->
+<!-- partial -->
+  <script  src="js/firebase.js"></script>
+
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBxrgYtV2X2BGAKO7wqriOeCvuLX8j_Ppg",
+    authDomain: "nav-gdg.firebaseapp.com",
+    databaseURL: "https://nav-gdg.firebaseio.com",
+    projectId: "nav-gdg",
+    storageBucket: "nav-gdg.appspot.com",
+    messagingSenderId: "39985876183",
+    appId: "1:39985876183:web:45656b8d14c3a4e390f492",
+    measurementId: "G-5TNBV34QMM"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  var sad = document.getElementById("ing");
+  console.log(sad)
+  var width = sad.width;
+  var height = sad.height;
+
+  var tex = ".gif"
+  var ted = "img/"
+  var database = firebase.database();
+  var firebaseRef = firebase.database().ref().child("mood");
+  firebaseRef.on('value',function(datasnapshot){
+
+  var ext = datasnapshot.val();
+  if (ext == "sad")   {
+  var widthx = (907*30)/100;
+  var heightx = (930*30)/100;
+}else if (ext == "happy") {
+  var widthx = (600*30)/100;
+  var heightx = (1080*30)/100;
+}else if (ext == "angry") {
+  var widthx = (500*30)/100;
+  var heightx = (658*30)/100;
+}else if (ext == "love") {
+  var widthx = (480*60)/100;
+  var heightx = (480*60)/100;
+}else if (ext == "fear") {
+  var widthx = (480*60)/100;
+  var heightx = (480*60)/100;
+}
+
+  sad.setAttribute("src", ted+ext+tex);
+  sad.setAttribute("width", widthx);
+  sad.setAttribute("height", heightx);
+
+
+  })
+</script>
+
 </body>
 </html>

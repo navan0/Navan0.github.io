@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+ <link rel="manifest" href="manifest.json" />
+
+	<!-- Your external script -->
+	<!-- <script type="text/javascript" src="js/firebase.js"></script> -->
+  <link rel="apple-touch-icon" href="/assets/images/logo-96x96.png">
+<meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
+<meta name="theme-color" content="#FFE1C4">
+<script src="js/app.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<!-- <link rel="stylesheet" href="css/firbasecss.css"> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="css/firebase.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+  <div class="toggle">
+    <input onclick="mySad()" type="checkbox">
+    <span class="button"></span>
+    <span class="label">SAD</span>
+  </div>
+  <div class="toggle">
+    <input onclick="myHappy()" type="checkbox" checked>
+    <span class="button"></span>
+    <span class="label">HPY</span>
+  </div>
+  <div class="toggle">
+    <input onclick="myAng()" type="checkbox">
+    <span class="button"></span>
+    <span class="label">ANG</span>
+  </div>
+  <div class="toggle">
+    <input onclick="myLov()" type="checkbox">
+    <span class="button"></span>
+    <span class="label">LOV</span>
+  </div>
+  <div class="toggle">
+    <input onclick="myFear()" type="checkbox">
+    <span class="button"></span>
+    <span class="label">FER</span>
+  </div>
+</div>
+  <script  src="js/script.js"></script>
+
+
+  <!-- partial:index.partial.html -->
+<h5 id = "forms"></h5>
+  <!-- partial -->
+    <script  src="js/firebase.js"></script>
+
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBxrgYtV2X2BGAKO7wqriOeCvuLX8j_Ppg",
+        authDomain: "nav-gdg.firebaseapp.com",
+        databaseURL: "https://nav-gdg.firebaseio.com",
+        projectId: "nav-gdg",
+        storageBucket: "nav-gdg.appspot.com",
+        messagingSenderId: "39985876183",
+        appId: "1:39985876183:web:45656b8d14c3a4e390f492",
+        measurementId: "G-5TNBV34QMM"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      // var sad = document.getElementById("forms");
+      // var database = firebase.database();
+      var firebaseRef = firebase.database().ref().child("mood");
+			// firebaseRef.set("sad")
+      // firebaseRef.on('value',function(datasnapshot){
+			//
+      // sad.src = datasnapshot.val();
+			//
+      // })
+    </script>
+		<script>
+      function mySad() {
+        firebaseRef.set("sad")
+      }
+
+      function myHappy() {
+        firebaseRef.set("happy")
+      }
+      function myAng() {
+        firebaseRef.set("angry")
+      }
+      function myLov() {
+        firebaseRef.set("love")
+      }
+      function myFear() {
+        firebaseRef.set("fear")
+      }
+
+    </script>
+
+  </body>
+</html>
