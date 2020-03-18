@@ -336,6 +336,7 @@ document.getElementById('dark').src="img/moon.png"}
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
   var sad = document.getElementById("ing");
+
   console.log(sad)
   var width = sad.width;
   var height = sad.height;
@@ -354,12 +355,15 @@ document.getElementById('dark').src="img/moon.png"}
   var widthx = (600*30)/100;
   var heightx = (1080*30)/100;
 }else if (ext == "angry") {
-  var widthx = (500*30)/100;
-  var heightx = (658*30)/100;
+  var widthx = (500*40)/100;
+  var heightx = (658*40)/100;
 }else if (ext == "love") {
   var widthx = (480*60)/100;
   var heightx = (480*60)/100;
 }else if (ext == "fear") {
+  var widthx = (480*60)/100;
+  var heightx = (480*60)/100;
+}else if (ext == "harry") {
   var widthx = (480*60)/100;
   var heightx = (480*60)/100;
 }
@@ -367,6 +371,7 @@ document.getElementById('dark').src="img/moon.png"}
   sad.setAttribute("src", ted+ext+tex);
   sad.setAttribute("width", widthx);
   sad.setAttribute("height", heightx);
+
 
 
   })

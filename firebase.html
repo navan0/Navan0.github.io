@@ -21,6 +21,7 @@
 
 </head>
 <body>
+  <p id="cmood"style="font-size:50px; color:white; padding: 10px;">MOOD REMOTE</p>
 	<div class="container">
   <div class="toggle">
     <input onclick="mySad()" type="checkbox">
@@ -46,6 +47,11 @@
     <input onclick="myFear()" type="checkbox">
     <span class="button"></span>
     <span class="label">FER</span>
+  </div>
+  <div class="toggle">
+    <input onclick="myHarry()" type="checkbox">
+    <span class="button"></span>
+    <span class="label" style="color:red">HRY</span>
   </div>
 </div>
   <script  src="js/script.js"></script>
@@ -95,6 +101,12 @@
       // })
     </script>
 		<script>
+      var cmood = document.getElementById("cmood");
+
+      firebaseRef.on('value',function(datasnapshot){
+      var ext = datasnapshot.val();
+      })
+      cmood.innerText = ext;
       function mySad() {
         firebaseRef.set("sad")
       }
@@ -110,6 +122,9 @@
       }
       function myFear() {
         firebaseRef.set("fear")
+      }
+      function myHarry() {
+        firebaseRef.set("harry")
       }
 
     </script>
