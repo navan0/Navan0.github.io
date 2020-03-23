@@ -73,7 +73,7 @@ hr {
 	transition: all 0.8s;
 }
 #menu.navbar-default {
-	box-shadow: 0 0 30px rgba(0,0,0,0.2)
+	/* box-shadow: 0 0 30px rgba(0,0,0,0.2) */
 }
 #menu a.navbar-brand {
 	font-family: 'Caveat', cursive;
@@ -289,14 +289,14 @@ header .navbar-brand {
 #tech .tech-desc hr {
 	margin-left: 0;
 }
-/* Portfolio Section */
-#portfolio {
+/* scifi Section */
+#scifi {
 	padding: 100px 0;
 }
-.portfolio-item {
+.scifi-item {
 	margin: 15px 0;
 }
-.portfolio-item .hover-bg {
+.scifi-item .hover-bg {
 	overflow: hidden;
 	position: relative;
 }
