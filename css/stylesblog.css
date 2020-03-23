@@ -15,6 +15,13 @@ body, html {
   color: white;
 
 }
+
+.dark {
+  background-color: #2d2d2d;
+  border-color: #2d2d2d;
+}
+
+
 h2 {
 	font-family: 'Raleway', sans-serif;
 	margin: 0 0 20px 0;
