@@ -61,7 +61,9 @@
         <script>
   function myFunction() {
      var element = document.body;
+     var men = document.getElementById("menu");
      element.classList.toggle("dark-mode");
+     men.classList.toggle("dark");
      if (document.getElementById('dark').src.includes("moon")) {
   document.getElementById('dark').src="img/sun.png"
 }else {

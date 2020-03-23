@@ -14,7 +14,15 @@ body, html {
   background-color: #2d2d2d;
   color: white;
 
+
 }
+
+.dark {
+  background-color: #2d2d2d;
+  border-color: #2d2d2d;
+}
+
+
 h2 {
 	font-family: 'Raleway', sans-serif;
 	margin: 0 0 20px 0;
@@ -70,7 +78,7 @@ hr {
 /* Navigation */
 #menu {
 	padding: 20px;
-	transition: all 0.8s;
+	/* transition: all 0.8s; */
 }
 #menu.navbar-default {
 	/* box-shadow: 0 0 30px rgba(0,0,0,0.2) */
