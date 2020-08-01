@@ -79,14 +79,13 @@
     <script>
       // Your web app's Firebase configuration
       var firebaseConfig = {
-        apiKey: "AIzaSyBxrgYtV2X2BGAKO7wqriOeCvuLX8j_Ppg",
-        authDomain: "nav-gdg.firebaseapp.com",
+        apiKey: "AIzaSyD_6S4qZhHQ457R27aPWoiBJxa_uo4u38g",
+        authDomain: "fir-animal-guesse-e3be6.firebaseapp.com",
         databaseURL: "https://nav-gdg.firebaseio.com",
-        projectId: "nav-gdg",
-        storageBucket: "nav-gdg.appspot.com",
-        messagingSenderId: "39985876183",
-        appId: "1:39985876183:web:45656b8d14c3a4e390f492",
-        measurementId: "G-5TNBV34QMM"
+        projectId: "fir-animal-guesse-e3be6",
+        storageBucket: "fir-animal-guesse-e3be6.appspot.com",
+        messagingSenderId: "843207587976",
+        appId: "1:39985876183:web:45656b8d14c3a4e390f492"
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
@@ -94,11 +93,11 @@
       // var sad = document.getElementById("forms");
       // var database = firebase.database();
       var firebaseRef = firebase.database().ref().child("mood");
-			// firebaseRef.set("sad")
-      // firebaseRef.on('value',function(datasnapshot){
-			//
-      // sad.src = datasnapshot.val();
-			//
+			firebaseRef.set("sad")
+      firebaseRef.on('value',function(datasnapshot){
+			
+      sad.src = datasnapshot.val();
+			
       // })
     </script>
 		<script>
