@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: navaneethkt.me
+Token: 2a17e362f5789a095dc6c17c76a193e22ca4baf0c78c183c173fb344a1456e59
