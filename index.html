@@ -277,8 +277,8 @@ document.getElementById('dark').src="img/moon.png"}
     </div>
     <div class="row">
           <h4><b>I'm listening to </b></h4>
-          <p>{"song":"currently playing"}</p>
-          <h4><b>No other data available now </b></h4>
+          <p style="color:red;" id="track">Sorry I'm not wired right now!</p>
+          <p id="track1"></p>
           <!-- <p>A Simple pip package to get summary of the texts</p> -->
       </div>
 
@@ -336,61 +336,22 @@ document.getElementById('dark').src="img/moon.png"}
   <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-     apiKey: "AIzaSyD_6S4qZhHQ457R27aPWoiBJxa_uo4u38g",
-    authDomain: "fir-animal-guesse-e3be6.firebaseapp.com",
-    databaseURL: "https://fir-animal-guesse-e3be6.firebaseio.com",
-    projectId: "fir-animal-guesse-e3be6",
-    storageBucket: "fir-animal-guesse-e3be6.appspot.com",
-    messagingSenderId: "843207587976",
-    appId: "1:843207587976:web:958e99e56f7df94549873d"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-//   firebase.analytics();
-  var sad = document.getElementById("ing");
-
-  console.log(sad)
-  var width = sad.width;
-  var height = sad.height;
-
-  var tex = ".gif"
-  var ted = "img/"
-  var database = firebase.database();
-  var firebaseRef = firebase.database().ref().child("mood");
-  firebaseRef.on('value',function(datasnapshot){
-
-  var ext = datasnapshot.val();
-  if (ext == "sad")   {
-  var widthx = (907*30)/100;
-  var heightx = (930*30)/100;
-}else if (ext == "happy") {
-  var widthx = (600*30)/100;
-  var heightx = (1080*30)/100;
-}else if (ext == "angry") {
-  var widthx = (500*40)/100;
-  var heightx = (658*40)/100;
-}else if (ext == "love") {
-  var widthx = (480*60)/100;
-  var heightx = (480*60)/100;
-}else if (ext == "fear") {
-  var widthx = (480*60)/100;
-  var heightx = (480*60)/100;
-}else if (ext == "harry") {
-  var widthx = (480*60)/100;
-  var heightx = (480*60)/100;
-}
-
-  sad.setAttribute("src", ted+ext+tex);
-  sad.setAttribute("width", widthx);
-  sad.setAttribute("height", heightx);
-
-
-
+  <script>
+  var $track = $('#track');
+  $.ajax({
+          url: 'https://api.spotify.com/v1/me/player/currently-playing',
+          beforeSend: function(xhr) {
+               xhr.setRequestHeader("Authorization", "Bearer BQDphcQCBegOK_HGBc6i2_yu7ART9wV6wcA33infef5HHC5N9USaIDS0EyaOfxNquQJBs2iN1F5bKjgFmIUDFYMBIkUeCTCX7M4CWAyOobgGVHOdIfnaqKLj1lfFp0ebGeQksHaVwBOsG7oVFmOnXFEnHQhLo-sQf-VkcD4")
+          }, success: function(datas){
+              console.log(datas.item);
+              // $track.text(datas.item.name);
+              //process the JSON data etc
+              document.getElementById("track").innerHTML = datas.item.name;
+              document.getElementById('track').style.color = '#1DB954';
+              document.getElementById('track1').innerHTML = "Listen with me on "+"spotify".link(datas.item.external_urls.spotify);
+          }
   })
-</script>
+  </script>
 
 </body>
 </html>
