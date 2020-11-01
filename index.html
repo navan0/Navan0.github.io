@@ -343,10 +343,10 @@ document.getElementById('dark').src="img/moon.png"}
           beforeSend: function(xhr) {
                xhr.setRequestHeader("Authorization", "Bearer BQDphcQCBegOK_HGBc6i2_yu7ART9wV6wcA33infef5HHC5N9USaIDS0EyaOfxNquQJBs2iN1F5bKjgFmIUDFYMBIkUeCTCX7M4CWAyOobgGVHOdIfnaqKLj1lfFp0ebGeQksHaVwBOsG7oVFmOnXFEnHQhLo-sQf-VkcD4")
           }, success: function(datas){
-              console.log(datas.item);
+              console.log(datas.item.artists[0].name);
               // $track.text(datas.item.name);
               //process the JSON data etc
-              document.getElementById("track").innerHTML = datas.item.name;
+              document.getElementById("track").innerHTML = datas.item.name + " - "+ datas.item.artists[0].name;
               document.getElementById('track').style.color = '#1DB954';
               document.getElementById('track1').innerHTML = "Listen with me on "+"spotify".link(datas.item.external_urls.spotify);
           }
