@@ -559,7 +559,9 @@ input:checked + .slider:before {
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+  border-radius: 15px;
+  /* border: 1px solid #6b6b6b; */
   transition: 0.3s;
   width: 350px;
 	height:100px;
