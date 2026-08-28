@@ -5,264 +5,279 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navaneeth Anand | Engineer, Pirate, Surreal</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Caveat:wght@600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #fafafa;
-            --text-color: #1a1a1a;
-            --accent-color: #555;
-            --border-color: #eaeaea;
+            /* Paper aesthetic colors */
+            --bg-desk: #e9e5dc;
+            --bg-paper: #fdfbf7;
+            --text-main: #2b2b2b;
+            --text-muted: #5a5a5a;
+            --accent: #b0413e; /* A faded ink red */
+            --line-color: #e2dfd8;
         }
 
         html, body {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            font-family: 'JetBrains Mono', monospace;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-up {
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-        }
-
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-
-        /* Header & Nav */
-        header {
-            width: 100%;
-            padding: 60px 20px 20px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: -1.5px;
-        }
-
-        header h4 {
-            margin: 10px 0 30px;
-            font-weight: 400;
-            color: var(--accent-color);
-        }
-
-        nav {
+            min-height: 100vh;
+            background-color: var(--bg-desk);
+            /* Subtle texture for the desk background */
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+            color: var(--text-main);
+            font-family: 'Lora', serif;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
+            padding: 40px 20px;
+            box-sizing: border-box;
         }
 
-        button.nav-btn {
-            background: none;
-            border: none;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1rem;
-            cursor: pointer;
-            color: var(--accent-color);
-            padding: 5px 10px;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        button.nav-btn::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--text-color);
-            transition: width 0.3s ease;
-        }
-
-        button.nav-btn:hover {
-            color: var(--text-color);
-        }
-
-        button.nav-btn.active {
-            color: var(--text-color);
-            font-weight: bold;
-        }
-
-        button.nav-btn.active::after {
+        /* The Paper Sheet */
+        .paper {
+            background-color: var(--bg-paper);
             width: 100%;
-        }
-
-        /* Main Content */
-        main {
-            width: 90%;
-            max-width: 700px;
-            flex: 1;
-            margin: 20px 0;
+            max-width: 650px;
+            min-height: 80vh;
+            padding: 50px 60px;
+            box-shadow: 
+                0 4px 6px rgba(0,0,0,0.05), 
+                0 10px 20px rgba(0,0,0,0.03),
+                inset 0 0 40px rgba(0,0,0,0.02); /* Slight inner vignette */
             position: relative;
+            box-sizing: border-box;
         }
 
-        .section {
-            display: none; /* Hidden by default, toggled via JS */
+        /* Typography */
+        h1, h2, h3, .mono {
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        .section.active {
+        h1 {
+            font-size: 2rem;
+            margin: 0 0 5px 0;
+            letter-spacing: -1px;
+            color: var(--text-main);
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--line-color);
+            padding-bottom: 20px;
+        }
+
+        p, li {
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Routing Views */
+        .view {
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .view.active {
             display: block;
-            animation: fadeInUp 0.5s ease forwards;
         }
 
-        article {
-            background-color: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        article:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.06);
+        /* Cookbook Index */
+        .recipe-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
         }
 
-        /* Cookbook Specifics */
-        .recipe-title {
-            margin-top: 0;
-            font-size: 1.5rem;
-            border-bottom: 2px dashed var(--border-color);
+        .recipe-list li {
+            margin-bottom: 15px;
+        }
+
+        .recipe-link {
+            font-family: 'JetBrains Mono', monospace;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            display: inline-block;
+            border-bottom: 1px dotted var(--text-main);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .recipe-link:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Recipe Specifics */
+        .recipe-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 2px solid var(--text-main);
             padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .recipe-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
         }
 
         .day-header {
+            font-family: 'JetBrains Mono', monospace;
             font-weight: bold;
-            margin-top: 25px;
-            font-size: 1.2rem;
+            margin-top: 30px;
+            font-size: 1.1rem;
+            color: var(--accent);
         }
 
-        ul {
-            padding-left: 20px;
-            line-height: 1.6;
+        /* Controls */
+        .controls {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--line-color);
+            display: flex;
+            gap: 15px;
+        }
+
+        button, .btn-link {
+            background: none;
+            border: 1px solid var(--text-muted);
+            padding: 8px 15px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        button:hover, .btn-link:hover {
+            border-color: var(--text-main);
+            color: var(--text-main);
         }
 
         /* Footer & Signature */
-        footer {
-            width: 100%;
-            padding: 40px 0;
-            text-align: center;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
+        .signature-container {
+            margin-top: 60px;
+            text-align: right;
         }
 
         .signature {
             font-family: 'Caveat', cursive;
-            font-size: 2.5rem;
-            color: var(--text-color);
-            transform: rotate(-3deg);
-            opacity: 0.8;
+            font-size: 2.2rem;
+            color: var(--text-main);
+            transform: rotate(-2deg);
+            display: inline-block;
         }
 
-        footer p {
-            margin: 0;
-            font-size: 0.8rem;
-            color: var(--accent-color);
+        /* Responsive */
+        @media (max-width: 600px) {
+            .paper {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header class="animate-up">
-        <h1>Navaneeth Anand</h1>
-        <h4><i>Engineer / Pirate / Surreal</i></h4>
-        <nav>
-            <button class="nav-btn active" onclick="switchTab('about')">About</button>
-            <button class="nav-btn" onclick="switchTab('cookbook')">Cookbook</button>
-        </nav>
-    </header>
+    <div class="paper">
+        <header>
+            <h1>Navaneeth Anand</h1>
+            <div class="subtitle mono"><i>Engineer / Pirate / Surreal</i></div>
+        </header>
 
-    <main>
-        <div id="about" class="section active">
-            <article class="animate-up delay-1">
-                <p>I build stories and software.</p>
-            </article>
-        </div>
-
-        <div id="cookbook" class="section">
-            <article>
-                <h2 class="recipe-title">Greek Yogurt</h2>
-                
-                <div class="day-header">Day 1</div>
-                
-                <p><strong>Things to buy:</strong></p>
-                <ul>
-                    <li>Milky Mist or Epigamia unflavored Greek yogurt.</li>
-                    <li>Whole milk (<em>nattile</em> or <em>veettile pashuvinte</em> milk) or Amul Gold. The milk should be fatty and rich.</li>
+        <div id="view-home" class="view active">
+            <p>I build stories and software.</p>
+            
+            <h3 class="mono" style="margin-top: 40px;">Cookbook.</h3>
+            <ul class="recipe-list">
+                <li><a href="#greek-yogurt" class="recipe-link">Greek Yogurt</a></li>
                 </ul>
 
-                <p><strong>Prep:</strong></p>
-                <p>Boil the milk to 86°C and let the temperature drop to 46°C. Take 2 tablespoons of Greek yogurt and mix it with a small amount of the warm milk. Later, mix this well with the rest of the milk and put it in a tight, hygienic container. Let it sit for 12-14 hours.</p>
-
-                <div class="day-header">Day 2</div>
-                
-                <p>When you look at the mixture, you might see a curd-like but slimy texture. Don't worry—let's prep for the next step.</p>
-
-                <p><strong>Prep:</strong></p>
-                <ul>
-                    <li>Cheesecloth or a good cotton cloth to drain.</li>
-                </ul>
-                
-                <p>Take a big vessel; we need to hang the mixture and leave room for the water to drain.</p>
-                <p>Put it in the fridge overnight. When you put it in the fridge, the fermentation will stop.</p>
-                <p>Take it out from the fridge and mix well (the sliminess will go away with the drained water, just mix the rest well).</p>
-                
-                <p><strong>Ta-da, ready!</strong></p>
-            </article>
+            <div class="signature-container">
+                <span class="signature">Navaneeth</span>
+            </div>
         </div>
-    </main>
 
-    <footer class="animate-up delay-2">
-        <div class="signature">Navaneeth Anand</div>
-        <p>&copy; 2026 Navaneeth Anand</p>
-    </footer>
+        <div id="view-greek-yogurt" class="view">
+            <div class="recipe-header">
+                <h2>Greek Yogurt</h2>
+            </div>
+            
+            <div class="day-header">Day 1</div>
+            
+            <p><strong>Things to buy:</strong></p>
+            <ul>
+                <li>Milky Mist or Epigamia unflavored Greek yogurt.</li>
+                <li>Whole milk (<em>nattile</em> or <em>veettile pashuvinte</em> milk) or Amul Gold. The milk should be fatty and rich.</li>
+            </ul>
+
+            <p><strong>Prep:</strong></p>
+            <p>Boil the milk to 86°C and let the temperature drop to 46°C. Take 2 tablespoons of Greek yogurt and mix it with a small amount of the warm milk. Later, mix this well with the rest of the milk and put it in a tight, hygienic container. Let it sit for 12-14 hours.</p>
+
+            <div class="day-header">Day 2</div>
+            
+            <p>When you look at the mixture, you might see a curd-like but slimy texture. Don't worry—let's prep for the next step.</p>
+
+            <p><strong>Prep:</strong></p>
+            <ul>
+                <li>Cheesecloth or a good cotton cloth to drain.</li>
+            </ul>
+            
+            <p>Take a big vessel; we need to hang the mixture and leave room for the water to drain. Put it in the fridge overnight. When you put it in the fridge, the fermentation will stop.</p>
+            
+            <p>Take it out from the fridge and mix well (the sliminess will go away with the drained water, just mix the rest well).</p>
+            
+            <p><strong>Ta-da, ready!</strong></p>
+
+            <div class="controls">
+                <a href="#" class="btn-link">&larr; Back</a>
+                <button onclick="copyShareLink()">Copy Link to Recipe</button>
+            </div>
+        </div>
+
+    </div>
 
     <script>
-        function switchTab(tabId) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
+        function handleRouting() {
+            // Get the hash from the URL (e.g., "#greek-yogurt"), default to empty
+            const hash = window.location.hash;
             
-            // Remove active class from all buttons
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
+            // Hide all views
+            document.querySelectorAll('.view').forEach(view => {
+                view.classList.remove('active');
             });
 
-            // Show selected section and activate button
-            document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
+            // If there's a hash and a corresponding view exists, show it
+            if (hash && document.querySelector('#view-' + hash.substring(1))) {
+                document.querySelector('#view-' + hash.substring(1)).classList.add('active');
+            } else {
+                // Otherwise, show the home view
+                document.getElementById('view-home').classList.add('active');
+            }
+        }
+
+        // Listen for changes in the URL hash (when a user clicks a link or uses back button)
+        window.addEventListener('hashchange', handleRouting);
+        
+        // Run on initial page load
+        window.addEventListener('DOMContentLoaded', handleRouting);
+
+        // Share Link Function
+        function copyShareLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                alert("Link copied to clipboard! You can share this directly.");
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
         }
     </script>
 </body>
