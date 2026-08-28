@@ -3,346 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navaneeth Anand | Engineer, Pirate, Surreal</title>
+    <title>Navaneeth Anand</title>
     
-    <!-- Premium Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <!-- Meta Tags for Link Sharing -->
+    <meta name="title" content="Navaneeth Anand | The Cookbook">
+    <meta name="description" content="Engineer, Pirate, Surreal. A collection of stories, software, and formulas.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Navaneeth Anand | The Cookbook">
+    <meta property="og:description" content="Engineer, Pirate, Surreal. Learn how to make pure Greek Yogurt at home.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=1200&auto=format&fit=crop">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Navaneeth Anand | The Cookbook">
+    <meta property="twitter:description" content="Engineer, Pirate, Surreal. Learn how to make pure Greek Yogurt at home.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=1200&auto=format&fit=crop">
+
+    <!-- Fonts: Plus Jakarta Sans, JetBrains Mono, Caveat -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg: #050505;
-            --surface: #111111;
-            --surface-hover: #1a1a1a;
-            --text-main: #f3f3f3;
-            --text-muted: #888888;
-            --accent: #ff3366; /* Surreal red/pink */
-            --accent-glow: rgba(255, 51, 102, 0.2);
-            --border: #222222;
+            --bg: #ffffff;
+            --text-main: #111111;
+            --text-muted: #666666;
+            --border: #e5e5e5;
+            --accent: #d9381e; /* Subtle rust red */
         }
 
         html, body {
             margin: 0;
             padding: 0;
-            min-height: 100vh;
             background-color: var(--bg);
             color: var(--text-main);
-            font-family: 'Space Grotesk', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* Ambient Background Glow */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -20%;
-            left: -10%;
-            width: 50vw;
-            height: 50vh;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-            filter: blur(100px);
-            z-index: -1;
-            opacity: 0.5;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            overflow-y: scroll;
         }
 
         .container {
-            width: 100%;
-            max-width: 720px;
-            padding: 100px 20px 60px;
-            box-sizing: border-box;
-            position: relative;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 60px 24px;
         }
 
-        /* Floating Glass Navigation */
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+        }
+
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.5rem; }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 48px;
+        }
+
+        p, li {
+            color: var(--text-main);
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 24px;
+        }
+
+        /* Navigation */
         nav {
-            position: fixed;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(17, 17, 17, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border);
-            padding: 8px;
-            border-radius: 50px;
             display: flex;
-            gap: 5px;
-            z-index: 100;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            gap: 24px;
+            margin-bottom: 48px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
         }
 
         nav a {
-            font-family: 'JetBrains Mono', monospace;
             color: var(--text-muted);
             text-decoration: none;
-            padding: 8px 24px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
             color: var(--text-main);
-            background: rgba(255,255,255,0.05);
         }
 
         nav a.active {
-            background: var(--text-main);
-            color: var(--bg);
-            font-weight: bold;
+            color: var(--text-main);
+            position: relative;
         }
 
-        /* Typography */
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            letter-spacing: -2px;
-            margin: 0 0 10px 0;
-            background: linear-gradient(135deg, #fff 0%, #888 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -17px;
+            width: 100%;
+            height: 1px;
+            background-color: var(--text-main);
         }
 
-        .mono { font-family: 'JetBrains Mono', monospace; }
-
-        .subtitle {
-            font-size: 0.9rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-        }
-
-        p, li {
-            font-weight: 300;
-            line-height: 1.7;
-            font-size: 1.1rem;
-            color: #cccccc;
-        }
-
-        /* Smooth Blur-Fade Animations */
+        /* Views */
         .view {
             display: none;
-            animation: blurFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
         .view.active {
             display: block;
+            animation: fadeIn 0.3s ease;
         }
 
-        @keyframes blurFadeIn {
-            from { opacity: 0; filter: blur(10px); transform: translateY(20px); }
-            to { opacity: 1; filter: blur(0); transform: translateY(0); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Cookbook Index */
-        .recipe-grid {
-            display: grid;
-            gap: 20px;
-            margin-top: 30px;
+        /* Cookbook Elements */
+        .recipe-list {
+            list-style: none;
+            padding: 0;
         }
 
-        .recipe-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 25px;
+        .recipe-list li {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .recipe-link {
             text-decoration: none;
             color: var(--text-main);
+            font-weight: 500;
+            font-size: 1.1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
         }
 
-        .recipe-card:hover {
-            background: var(--surface-hover);
-            transform: translateY(-3px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px var(--accent-glow);
-        }
-
-        .recipe-card h3 {
-            margin: 0;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
-        }
-
-        .recipe-card span {
-            font-family: 'JetBrains Mono', monospace;
+        .recipe-link:hover {
             color: var(--accent);
         }
 
-        /* Recipe Layout */
-        .recipe-header {
-            margin-bottom: 40px;
+        .recipe-link span {
+            color: var(--text-muted);
+            transition: transform 0.2s;
         }
 
-        .recipe-header h2 {
-            font-size: 2.5rem;
-            margin: 0;
-            letter-spacing: -1px;
-        }
-
-        .day-block {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .day-label {
-            display: inline-block;
-            background: rgba(255, 51, 102, 0.1);
+        .recipe-link:hover span {
+            transform: translateX(4px);
             color: var(--accent);
-            padding: 5px 12px;
-            border-radius: 8px;
-            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .day-header {
+            margin-top: 32px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
             font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 20px;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
         }
 
-        /* Buttons & Controls */
+        /* Controls */
         .controls {
+            margin-top: 48px;
             display: flex;
-            gap: 15px;
-            margin-top: 40px;
+            gap: 16px;
         }
 
-        button, .btn {
-            background: var(--surface);
+        .btn {
+            background: none;
             border: 1px solid var(--border);
             color: var(--text-main);
-            font-family: 'JetBrains Mono', monospace;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 8px 16px;
             cursor: pointer;
             text-decoration: none;
-            font-size: 0.9rem;
             transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        button:hover, .btn:hover {
-            background: var(--text-main);
-            color: var(--bg);
+        .btn:hover {
+            border-color: var(--text-main);
         }
 
         /* Signature */
-        .signature-container {
-            margin-top: 80px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
+        .signature-wrap {
+            margin-top: 64px;
             text-align: right;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-        }
-
-        .signature-container:hover {
-            opacity: 1;
         }
 
         .signature {
             font-family: 'Caveat', cursive;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: var(--text-main);
-            transform: rotate(-3deg);
+            transform: rotate(-2deg);
             display: inline-block;
-            text-shadow: 0 0 20px rgba(255,255,255,0.2);
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .container { padding-top: 100px; }
-            nav { width: 90%; justify-content: center; }
+            .container { padding: 40px 20px; }
+            h1 { font-size: 1.75rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Navigation -->
-    <nav>
-        <a href="#home" class="nav-link" id="nav-home">About</a>
-        <a href="#cookbook" class="nav-link" id="nav-cookbook">Cookbook</a>
-    </nav>
-
     <div class="container">
         
+        <header>
+            <h1>Navaneeth Anand</h1>
+            <div class="subtitle mono">Engineer / Pirate / Surreal</div>
+        </header>
+
+        <nav>
+            <a href="#home" class="nav-link" id="nav-home">About</a>
+            <a href="#cookbook" class="nav-link" id="nav-cookbook">Cookbook</a>
+        </nav>
+
         <!-- VIEW: ABOUT (HOME) -->
         <div id="view-home" class="view active">
-            <header>
-                <h1>Navaneeth Anand</h1>
-                <div class="subtitle mono">Engineer / Pirate / Surreal</div>
-            </header>
-            <p>I build stories and software. Always exploring the intersections of logic, rebellion, and the slightly surreal.</p>
+            <p>I build stories and software.</p>
             
-            <div class="signature-container">
+            <div class="signature-wrap">
                 <span class="signature">Navaneeth Anand</span>
             </div>
         </div>
 
         <!-- VIEW: COOKBOOK INDEX -->
         <div id="view-cookbook" class="view">
-            <header>
-                <h1>The Cookbook</h1>
-                <div class="subtitle mono">Formulas & Fermentations</div>
-            </header>
-            <p>A collection of things I make when I'm not writing code.</p>
-            
-            <div class="recipe-grid">
-                <a href="#greek-yogurt" class="recipe-card">
-                    <h3>Greek Yogurt</h3>
-                    <span>Read &rarr;</span>
-                </a>
-                <!-- Future recipes go here -->
-            </div>
+            <ul class="recipe-list">
+                <li>
+                    <a href="#greek-yogurt" class="recipe-link">
+                        Greek Yogurt 
+                        <span class="mono">&rarr;</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
         <!-- VIEW: GREEK YOGURT RECIPE -->
         <div id="view-greek-yogurt" class="view">
-            <div class="recipe-header">
-                <h2>Greek Yogurt</h2>
-                <div class="subtitle mono">Yields pure satisfaction</div>
-            </div>
+            <h2>Greek Yogurt</h2>
             
-            <div class="day-block">
-                <div class="day-label">DAY 01</div>
-                <p><strong class="mono" style="color: white;">Ingredients:</strong></p>
-                <ul>
-                    <li>Milky Mist or Epigamia unflavored Greek yogurt.</li>
-                    <li>Whole milk (<em>nattile</em> or <em>veettile pashuvinte</em> milk) or Amul Gold. The milk must be fatty and rich.</li>
-                </ul>
+            <div class="day-header">Day 1</div>
+            <p><strong>Things to buy:</strong></p>
+            <ul>
+                <li>Milky Mist or Epigamia unflavored Greek yogurt.</li>
+                <li>Whole milk (<em>nattile</em> or <em>veettile pashuvinte</em> milk) or Amul Gold. The milk must be fatty and rich.</li>
+            </ul>
 
-                <p><strong class="mono" style="color: white;">Preparation:</strong></p>
-                <p>Boil the milk to 86°C and let the temperature drop to 46°C. Take 2 tablespoons of Greek yogurt and mix it with a small amount of the warm milk. Once combined, mix this well with the rest of the milk and transfer to a tight, hygienic container. Let it sit undisturbed for 12-14 hours.</p>
-            </div>
+            <p><strong>Prep:</strong></p>
+            <p>Boil the milk to 86°C and let the temperature drop to 46°C. Take 2 tablespoons of Greek yogurt and mix it with a small amount of the warm milk. Once combined, mix this well with the rest of the milk and transfer to a tight, hygienic container. Let it sit undisturbed for 12-14 hours.</p>
 
-            <div class="day-block">
-                <div class="day-label">DAY 02</div>
-                <p>When you look at the mixture, you might see a curd-like but slimy texture. Don't worry—this is normal.</p>
+            <div class="day-header">Day 2</div>
+            <p>When you look at the mixture, you might see a curd-like but slimy texture. Don't worry—this is normal.</p>
 
-                <p><strong class="mono" style="color: white;">Preparation:</strong></p>
-                <ul>
-                    <li>You will need cheesecloth or a high-quality cotton cloth to drain.</li>
-                </ul>
-                
-                <p>Take a big vessel; we need to hang the mixture and leave enough room for the water to drain into the vessel. Put the entire setup in the fridge overnight. The cold temperature will stop the fermentation process.</p>
-                
-                <p>Take it out from the fridge and mix it thoroughly. The sliminess will have drained away with the whey water, leaving you with a thick, rich consistency.</p>
-                
-                <p><strong>Ta-da, ready to eat.</strong></p>
-            </div>
+            <p><strong>Prep:</strong></p>
+            <ul>
+                <li>You will need cheesecloth or a high-quality cotton cloth to drain.</li>
+            </ul>
+            
+            <p>Take a big vessel; we need to hang the mixture and leave enough room for the water to drain into the vessel. Put the entire setup in the fridge overnight. The cold temperature will stop the fermentation process.</p>
+            
+            <p>Take it out from the fridge and mix it thoroughly. The sliminess will have drained away with the whey water, leaving you with a thick, rich consistency.</p>
+            
+            <p><strong>Ta-da, ready to eat.</strong></p>
 
             <div class="controls">
-                <a href="#cookbook" class="btn">&larr; Back to Cookbook</a>
-                <button onclick="copyShareLink()">🔗 Copy Share Link</button>
+                <a href="#cookbook" class="btn mono">&larr; Back</a>
+                <button class="btn mono" onclick="copyShareLink(this)">Copy Link</button>
             </div>
         </div>
 
@@ -351,28 +291,22 @@
     <!-- Routing and Logic -->
     <script>
         function handleRouting() {
-            // Get hash, default to 'home'
             let hash = window.location.hash.substring(1) || 'home';
             
-            // Hide all views
             document.querySelectorAll('.view').forEach(view => {
                 view.classList.remove('active');
             });
 
-            // Update Navigation Highlighting
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
 
-            // If it's a specific recipe, we don't highlight home or cookbook nav
-            // but if it is home or cookbook, we highlight the pill
             let activeNav = document.getElementById('nav-' + hash);
             if(activeNav) activeNav.classList.add('active');
             else if(hash !== 'home' && hash !== 'cookbook') {
                 document.getElementById('nav-cookbook').classList.add('active');
             }
 
-            // Show target view, fallback to home
             let targetView = document.getElementById('view-' + hash);
             if (targetView) {
                 targetView.classList.add('active');
@@ -382,22 +316,16 @@
             }
         }
 
-        // Listeners
         window.addEventListener('hashchange', handleRouting);
         window.addEventListener('DOMContentLoaded', handleRouting);
 
-        // Share link 
-        function copyShareLink() {
+        function copyShareLink(btn) {
             const url = window.location.href;
             navigator.clipboard.writeText(url).then(() => {
-                // Temporary button state change
-                const btn = event.target;
                 const originalText = btn.innerText;
-                btn.innerText = "✓ Copied!";
+                btn.innerText = "Copied!";
                 setTimeout(() => { btn.innerText = originalText; }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
+            }).catch(err => console.error('Failed to copy: ', err));
         }
     </script>
 </body>
